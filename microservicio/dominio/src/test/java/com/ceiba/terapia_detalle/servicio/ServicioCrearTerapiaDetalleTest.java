@@ -19,9 +19,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class ServicioCrearTerapiaDetalleTest {
-    private final String DIA_NO_PERMITIDOS = "Día no permitido, ingrese solo dias de lunes a viernes";
-    private final String DIA_FESTIVO = "Los días festivos no esta permitido programar sesiones, para la fecha ";
-    private final String MAXIMA_FECHA_PARA_AGREGAR_SESSION = "Las sesiones de la terapia solo pueden registrarse con 45 días calendario de anticipación.";
+    private static final String DIA_NO_PERMITIDOS = "Día no permitido, ingrese solo dias de lunes a viernes";
+    private static final String DIA_FESTIVO = "Los días festivos no esta permitido programar sesiones, para la fecha ";
+    private static final String MAXIMA_FECHA_PARA_AGREGAR_SESSION = "Las sesiones de la terapia solo pueden registrarse con 45 días calendario de anticipación.";
 
     private RepositorioTerapiaDetalle repositorioTerapiaDetalle;
     private RepositorioFestividad repositorioFestividad;

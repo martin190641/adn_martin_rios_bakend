@@ -8,7 +8,7 @@ import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
 @Getter
 public class TerapiaDetalle {
-    private final String DEBE_INGRESAR_LA_FECHA_Y_HORA = "Debe ingresar la fecha y hora de la sesion";
+    private static final String DEBE_INGRESAR_LA_FECHA_Y_HORA = "Debe ingresar la fecha y hora de la sesion";
     private Long id;
     private Long terapiaId;
     private LocalDateTime fechaHora;

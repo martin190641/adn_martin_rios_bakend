@@ -13,7 +13,6 @@ public class MapeoTipoServicio implements RowMapper<DtoTipoServicio>, MapperResu
     public DtoTipoServicio mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 
         Long id = resultSet.getLong("id");
-        ;
         String nombre = resultSet.getString("nombre");
         String descripcion = resultSet.getString("descripcion");
         double valor = resultSet.getDouble("valor");

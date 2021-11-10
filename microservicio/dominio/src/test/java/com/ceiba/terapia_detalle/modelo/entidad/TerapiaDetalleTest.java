@@ -13,7 +13,7 @@ import java.time.LocalTime;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TerapiaDetalleTest {
-    private final String DEBE_INGRESAR_LA_FECHA_Y_HORA = "Debe ingresar la fecha y hora de la sesion";
+    private static final String DEBE_INGRESAR_LA_FECHA_Y_HORA = "Debe ingresar la fecha y hora de la sesion";
 
     @Test
     @DisplayName("Deberia crear correctamente el terapia detalle")
