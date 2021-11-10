@@ -39,11 +39,11 @@ class ConsultaControladorTipoServicioTest {
         mocMvc.perform(get("/tipo_servicios")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].id", is(1)))
-                .andExpect(jsonPath("$[0].nombre", is("Test Servicio")))
-                .andExpect(jsonPath("$[0].descripcion", is("Test desripcion Servicio")))
-                .andExpect(jsonPath("$[0].valor", is(150000.0)));
+                .andExpect(jsonPath("$", hasSize(4)))
+                .andExpect(jsonPath("$[3].id", is(4)))
+                .andExpect(jsonPath("$[3].nombre", is("Test Servicio")))
+                .andExpect(jsonPath("$[3].descripcion", is("Test desripcion Servicio")))
+                .andExpect(jsonPath("$[3].valor", is(150000.0)));
 
     }
 }
