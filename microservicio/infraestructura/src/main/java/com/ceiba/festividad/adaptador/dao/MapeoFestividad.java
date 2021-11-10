@@ -14,7 +14,6 @@ public class MapeoFestividad implements RowMapper<DtoFestividad>, MapperResult {
     public DtoFestividad mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 
         LocalDate fechaFestiva = extraerLocalDate(resultSet, "fecha_festiva");
-        ;
         String descripcion = resultSet.getString("descripcion");
 
         return new DtoFestividad(fechaFestiva, descripcion);

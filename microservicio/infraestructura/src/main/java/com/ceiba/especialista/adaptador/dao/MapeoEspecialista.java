@@ -13,7 +13,6 @@ public class MapeoEspecialista implements RowMapper<DtoEspecialista>, MapperResu
     @Override
     public DtoEspecialista mapRow(ResultSet resultSet, int rowNum) throws SQLException {
         Long id = resultSet.getLong("id");
-        ;
         String documentoIdentificacion = resultSet.getString("documento_identificacion");
         String nombres = resultSet.getString("nombres");
         String apellidos = resultSet.getString("apellidos");

@@ -39,19 +39,19 @@ public class ServicioCrearTerapia {
         validarExistenciaPreviaTipoServicio(terapia.getTipoServicioId());
         validarExistenciaPreviaEspecialista(terapia.getEspecialistaId());
 
-        ObtenerDescuentosParaLaTerapia(terapia);
-        CalcularValorTotalDeLaTerapia(terapia);
+        obtenerDescuentosParaLaTerapia(terapia);
+        calcularValorTotalDeLaTerapia(terapia);
 
         return this.repositorioTerapia.crear(terapia);
     }
 
-    private void CalcularValorTotalDeLaTerapia(Terapia terapia) {
+    private void calcularValorTotalDeLaTerapia(Terapia terapia) {
         double valorTotal = terapia.getValorNeto() - (terapia.getValorNeto() * terapia.getDescuento() / 100);
 
         terapia.reasignarValorTotal(valorTotal);
     }
 
-    private void ObtenerDescuentosParaLaTerapia(Terapia terapia) {
+    private void obtenerDescuentosParaLaTerapia(Terapia terapia) {
         DtoPaciente dtoPaciente = daoPaciente.listarPorId(terapia.getPacienteId());
         double pocentajeDescuento = 0;
         if (dtoPaciente.getEdad() < 5 || dtoPaciente.getEdad() > 58) {
