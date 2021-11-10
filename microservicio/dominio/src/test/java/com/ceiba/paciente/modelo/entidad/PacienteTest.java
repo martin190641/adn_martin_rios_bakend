@@ -44,13 +44,11 @@ class PacienteTest {
     void deberiaFallarSinDocumentoIdentidadDelPaciente() {
         //Preparación
         LocalDate fechaNacimiento = LocalDate.of(1990, 8, 4);
-
-        // Ejecución
         PacienteTestDataBuilder pacienteTestDataBuilder = new PacienteTestDataBuilder()
                 .conId(1L)
                 .conDocumentoIdentificacion(null);
 
-        // Assert
+        // Ejecución -Assert
         BasePrueba.assertThrows((BasePrueba.Thunk) pacienteTestDataBuilder::build,
                 ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_EL_DOCUMENTO_IDENTIFICACION);
 
