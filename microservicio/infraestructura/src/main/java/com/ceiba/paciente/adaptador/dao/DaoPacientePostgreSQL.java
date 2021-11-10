@@ -14,14 +14,15 @@ public class DaoPacientePostgreSQL implements DaoPaciente {
 
     @SqlStatement(namespace = "paciente", value = "listar")
     private static String sqlListar;
+
     @SqlStatement(namespace = "paciente", value = "listarPorId")
     private static String sqlListarPorId;
+
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     public DaoPacientePostgreSQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
-
 
     @Override
     public List<DtoPaciente> listar() {
@@ -34,6 +35,5 @@ public class DaoPacientePostgreSQL implements DaoPaciente {
         paramSource.addValue("id", id);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPorId, paramSource, new MapeoPaciente()).get(0);
-
     }
 }

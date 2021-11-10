@@ -12,7 +12,7 @@ public class RepositorioTerapiaPostgreSQL implements RepositorioTerapia {
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace = "terapia", value = "crear")
-    private String sqlCrear;
+    private static String sqlCrear;
 
 
     public RepositorioTerapiaPostgreSQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {

@@ -14,6 +14,7 @@ import java.util.List;
 public class DaoTerapiaPostgreSQL implements DaoTerapia {
     @SqlStatement(namespace = "terapia", value = "listarPorPaciente")
     private static String sqlListar;
+
     @SqlStatement(namespace = "terapia", value = "contarTerapiasPorPacienteEntreFechas")
     private static String sqlContarTerapiasPorPacienteEntreFechas;
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;

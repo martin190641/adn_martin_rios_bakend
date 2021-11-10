@@ -10,15 +10,14 @@ import java.util.List;
 
 @Component
 public class DaoFestividadPostgreSQL implements DaoFestividad {
-
     @SqlStatement(namespace = "festividad", value = "listar")
     private static String sqlListar;
+
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     public DaoFestividadPostgreSQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
-
 
     @Override
     public List<DtoFestividad> listar() {

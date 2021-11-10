@@ -11,17 +11,17 @@ import java.util.List;
 
 @Component
 public class DaoEspecialistaPostgreSQL implements DaoEspecialista {
-
     @SqlStatement(namespace = "especialista", value = "listar")
     private static String sqlListar;
+
     @SqlStatement(namespace = "especialista", value = "listarPorId")
     private static String sqlListarPorId;
+
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     public DaoEspecialistaPostgreSQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
-
 
     @Override
     public List<DtoEspecialista> listar() {
@@ -34,6 +34,5 @@ public class DaoEspecialistaPostgreSQL implements DaoEspecialista {
         paramSource.addValue("id", id);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPorId, paramSource, new MapeoEspecialista()).get(0);
-
     }
 }

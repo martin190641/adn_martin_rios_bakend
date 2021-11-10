@@ -12,7 +12,7 @@ public class RepositorioTipoServicioPostgreSQL implements RepositorioTipoServici
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace = "tipo_servicio", value = "existePorId")
-    private String sqlExistePorId;
+    private static String sqlExistePorId;
 
 
     public RepositorioTipoServicioPostgreSQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
