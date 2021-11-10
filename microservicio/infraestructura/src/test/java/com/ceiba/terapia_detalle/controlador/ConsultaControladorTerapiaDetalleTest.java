@@ -44,6 +44,6 @@ class ConsultaControladorTerapiaDetalleTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0].id", is(1)))
-                .andExpect(jsonPath("$[0].terapiaI", is(1)));
+                .andExpect(jsonPath("$[0].terapiaId", is(1)));
     }
 }
