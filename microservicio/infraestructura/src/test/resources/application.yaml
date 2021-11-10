@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    jdbcUrl: jdbc:h2:mem:testdb;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=FALSE;CASE_INSENSITIVE_IDENTIFIERS=TRUE;INIT=CREATE SCHEMA IF NOT EXISTS public
+    username: sa
+    password:
+    hikari:
+      poolName: pool
+

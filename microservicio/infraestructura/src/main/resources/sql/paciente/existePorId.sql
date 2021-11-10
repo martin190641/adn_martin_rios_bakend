@@ -1,0 +1,1 @@
+SELECT  COUNT(1) FROM public.paciente WHERE id = :id

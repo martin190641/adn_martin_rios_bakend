@@ -1,0 +1,1 @@
+SELECT  COUNT(1) FROM public.tipo_servicio WHERE id = :id
