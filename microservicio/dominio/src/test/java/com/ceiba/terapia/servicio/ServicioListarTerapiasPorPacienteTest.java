@@ -8,11 +8,9 @@ import com.ceiba.paciente.puerto.dao.DaoPaciente;
 import com.ceiba.paciente.servicio.testdatabuilder.DtoPacienteTestDataBuilder;
 import com.ceiba.terapia.modelo.dto.DtoTerapia;
 import com.ceiba.terapia.modelo.dto.DtoTerapiaPorPaciente;
-import com.ceiba.terapia.modelo.entidad.Terapia;
 import com.ceiba.terapia.puerto.dao.DaoTerapia;
 import com.ceiba.terapia.servicio.testdatabuilder.DtoTerapiaPorPacienteTestDataBuilder;
 import com.ceiba.terapia.servicio.testdatabuilder.DtoTerapiaTestDataBuilder;
-import com.ceiba.terapia.servicio.testdatabuilder.TerapiaTestDataBuilder;
 import com.ceiba.tiposervicio.modelo.dto.DtoTipoServicio;
 import com.ceiba.tiposervicio.puerto.dao.DaoTipoServicio;
 import com.ceiba.tiposervicio.servicio.testdatabuilder.DtoTipoServicioTestDataBuilder;
@@ -22,11 +20,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.mockito.Mockito;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)

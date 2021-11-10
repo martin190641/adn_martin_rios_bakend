@@ -2,6 +2,7 @@ package com.ceiba.terapia.servicio;
 
 import com.ceiba.terapia.comando.ComandoTerapia;
 import com.ceiba.terapia_detalle.comando.ComandoTerapiaDetalle;
+
 import java.time.LocalDate;
 import java.util.List;
 

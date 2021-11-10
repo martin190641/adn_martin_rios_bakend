@@ -1,7 +1,6 @@
 package com.ceiba.paciente.controlador;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.ComandoRespuestaTest;
 import com.ceiba.paciente.comando.ComandoPaciente;
 import com.ceiba.paciente.servicio.ComandoPacienteTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;

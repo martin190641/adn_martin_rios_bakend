@@ -28,7 +28,7 @@ public class ServicioCrearTerapiaDetalle {
     }
 
     private void ValidarFechaMaximaPermitida(LocalDate fechaSession) {
-        if (fechaSession.isAfter(LocalDate.now().plusDays(45))){
+        if (fechaSession.isAfter(LocalDate.now().plusDays(45))) {
             throw new ExcepcionValorInvalido(MAXIMA_FECHA_PARA_AGREGAR_SESSION);
         }
     }

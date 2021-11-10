@@ -1,9 +1,7 @@
 package com.ceiba.terapia.controlador;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.especialista.comando.ComandoEspecialista;
 import com.ceiba.especialista.controlador.ComandoControladorEspecialista;
-import com.ceiba.especialista.servicio.ComandoEspecialistaTestDataBuilder;
 import com.ceiba.terapia.comando.ComandoTerapia;
 import com.ceiba.terapia.servicio.ComandoTerapiaTestDataBuilder;
 import com.ceiba.terapia_detalle.comando.ComandoTerapiaDetalle;

@@ -15,7 +15,7 @@ public class ComandoTerapiaDetalleTestDataBuilder {
         fechaHora = LocalDateTime.now();
     }
 
-    public ComandoTerapiaDetalleTestDataBuilder conFechaHora(LocalDateTime fechaHora){
+    public ComandoTerapiaDetalleTestDataBuilder conFechaHora(LocalDateTime fechaHora) {
         this.fechaHora = fechaHora;
         return this;
     }
