@@ -13,10 +13,10 @@ import java.util.List;
 public class DaoPacientePostgreSQL implements DaoPaciente {
 
     @SqlStatement(namespace = "paciente", value = "listar")
-    private static String sqlListar;
+    private static String sqlListarPaciente;
 
     @SqlStatement(namespace = "paciente", value = "listarPorId")
-    private static String sqlListarPorId;
+    private static String sqlListarPacientePorId;
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
@@ -26,7 +26,7 @@ public class DaoPacientePostgreSQL implements DaoPaciente {
 
     @Override
     public List<DtoPaciente> listar() {
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, new MapeoPaciente());
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPaciente, new MapeoPaciente());
     }
 
     @Override
@@ -34,6 +34,6 @@ public class DaoPacientePostgreSQL implements DaoPaciente {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id", id);
 
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPorId, paramSource, new MapeoPaciente()).get(0);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPacientePorId, paramSource, new MapeoPaciente()).get(0);
     }
 }

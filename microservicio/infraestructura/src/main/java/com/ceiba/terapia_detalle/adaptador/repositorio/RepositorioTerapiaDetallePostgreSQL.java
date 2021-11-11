@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RepositorioTerapiaDetallePostgreSQL implements RepositorioTerapiaDetalle {
     @SqlStatement(namespace = "terapia_detalle", value = "crear")
-    private static String sqlCrear;
+    private static String sqlCrearTerapiaDetalle;
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     public RepositorioTerapiaDetallePostgreSQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
@@ -19,6 +19,6 @@ public class RepositorioTerapiaDetallePostgreSQL implements RepositorioTerapiaDe
     @Override
     public Long crear(TerapiaDetalle terapiaDetalle) {
 
-        return this.customNamedParameterJdbcTemplate.crear(terapiaDetalle, sqlCrear);
+        return this.customNamedParameterJdbcTemplate.crear(terapiaDetalle, sqlCrearTerapiaDetalle);
     }
 }

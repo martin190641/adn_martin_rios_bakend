@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Repository
 public class RepositorioFestividadPostgreSQL implements RepositorioFestividad {
     @SqlStatement(namespace = "festividad", value = "existe")
-    private static String sqlExiste;
+    private static String sqlExisteFestividad;
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
@@ -24,6 +24,6 @@ public class RepositorioFestividadPostgreSQL implements RepositorioFestividad {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("fecha", fecha);
 
-        return Boolean.TRUE.equals(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, paramSource, Boolean.class));
+        return Boolean.TRUE.equals(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteFestividad, paramSource, Boolean.class));
     }
 }

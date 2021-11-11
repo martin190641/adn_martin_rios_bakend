@@ -13,19 +13,19 @@ public class RepositorioPacientePostgreSQL implements RepositorioPaciente {
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace = "paciente", value = "crear")
-    private static String sqlCrear;
+    private static String sqlCrearPaciente;
 
     @SqlStatement(namespace = "paciente", value = "actualizar")
-    private static String sqlActualizar;
+    private static String sqlActualizarPaciente;
 
     @SqlStatement(namespace = "paciente", value = "eliminar")
-    private static String sqlEliminar;
+    private static String sqlEliminarPaciente;
 
     @SqlStatement(namespace = "paciente", value = "existe")
-    private static String sqlExiste;
+    private static String sqlExistePaciente;
 
     @SqlStatement(namespace = "paciente", value = "existePorId")
-    private static String sqlExistePorId;
+    private static String sqlExistePacientePorId;
 
     public RepositorioPacientePostgreSQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -33,12 +33,12 @@ public class RepositorioPacientePostgreSQL implements RepositorioPaciente {
 
     @Override
     public Long crear(Paciente paciente) {
-        return this.customNamedParameterJdbcTemplate.crear(paciente, sqlCrear);
+        return this.customNamedParameterJdbcTemplate.crear(paciente, sqlCrearPaciente);
     }
 
     @Override
     public void actualizar(Paciente paciente) {
-        this.customNamedParameterJdbcTemplate.actualizar(paciente, sqlActualizar);
+        this.customNamedParameterJdbcTemplate.actualizar(paciente, sqlActualizarPaciente);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class RepositorioPacientePostgreSQL implements RepositorioPaciente {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id", id);
 
-        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
+        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminarPaciente, paramSource);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class RepositorioPacientePostgreSQL implements RepositorioPaciente {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("documentoIdentificacion", documentoIdentificacion);
 
-        return Boolean.TRUE.equals(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, paramSource, Boolean.class));
+        return Boolean.TRUE.equals(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePaciente, paramSource, Boolean.class));
     }
 
     @Override
@@ -62,7 +62,7 @@ public class RepositorioPacientePostgreSQL implements RepositorioPaciente {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id", id);
 
-        return Boolean.TRUE.equals(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorId, paramSource, Boolean.class));
+        return Boolean.TRUE.equals(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePacientePorId, paramSource, Boolean.class));
     }
 
 }

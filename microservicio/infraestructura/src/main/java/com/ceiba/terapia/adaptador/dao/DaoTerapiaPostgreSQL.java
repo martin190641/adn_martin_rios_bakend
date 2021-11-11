@@ -13,7 +13,7 @@ import java.util.List;
 @Component
 public class DaoTerapiaPostgreSQL implements DaoTerapia {
     @SqlStatement(namespace = "terapia", value = "listarPorPaciente")
-    private static String sqlListar;
+    private static String sqlListarTerapia;
 
     @SqlStatement(namespace = "terapia", value = "contarTerapiasPorPacienteEntreFechas")
     private static String sqlContarTerapiasPorPacienteEntreFechas;
@@ -27,7 +27,7 @@ public class DaoTerapiaPostgreSQL implements DaoTerapia {
     public List<DtoTerapia> listarPorPaciente(Long pacienteId) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("pacienteId", pacienteId);
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, paramSource, new MapeoTerapia());
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarTerapia, paramSource, new MapeoTerapia());
 
     }
 

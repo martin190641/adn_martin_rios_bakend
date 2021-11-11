@@ -13,19 +13,19 @@ public class RepositorioEspecialistaPostgreSQL implements RepositorioEspecialist
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace = "especialista", value = "crear")
-    private static String sqlCrear;
+    private static String sqlCrearEspecialista;
 
     @SqlStatement(namespace = "especialista", value = "actualizar")
-    private static String sqlActualizar;
+    private static String sqlActualizarEspecialista;
 
     @SqlStatement(namespace = "especialista", value = "eliminar")
-    private static String sqlEliminar;
+    private static String sqlEliminarEspecialista;
 
     @SqlStatement(namespace = "especialista", value = "existe")
-    private static String sqlExiste;
+    private static String sqlExisteEspecialista;
 
     @SqlStatement(namespace = "especialista", value = "existePorId")
-    private static String sqlExistePorId;
+    private static String sqlExisteEspecialistaPorId;
 
     public RepositorioEspecialistaPostgreSQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -33,12 +33,12 @@ public class RepositorioEspecialistaPostgreSQL implements RepositorioEspecialist
 
     @Override
     public Long crear(Especialista especialista) {
-        return this.customNamedParameterJdbcTemplate.crear(especialista, sqlCrear);
+        return this.customNamedParameterJdbcTemplate.crear(especialista, sqlCrearEspecialista);
     }
 
     @Override
     public void actualizar(Especialista especialista) {
-        this.customNamedParameterJdbcTemplate.actualizar(especialista, sqlActualizar);
+        this.customNamedParameterJdbcTemplate.actualizar(especialista, sqlActualizarEspecialista);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class RepositorioEspecialistaPostgreSQL implements RepositorioEspecialist
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id", id);
 
-        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
+        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminarEspecialista, paramSource);
 
     }
 
@@ -55,7 +55,7 @@ public class RepositorioEspecialistaPostgreSQL implements RepositorioEspecialist
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("documentoIdentificacion", documentoIdentificacion);
 
-        return Boolean.TRUE.equals(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, paramSource, Boolean.class));
+        return Boolean.TRUE.equals(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteEspecialista, paramSource, Boolean.class));
 
     }
 
@@ -64,7 +64,7 @@ public class RepositorioEspecialistaPostgreSQL implements RepositorioEspecialist
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id", id);
 
-        return Boolean.TRUE.equals(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorId, paramSource, Boolean.class));
+        return Boolean.TRUE.equals(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteEspecialistaPorId, paramSource, Boolean.class));
     }
 
 }

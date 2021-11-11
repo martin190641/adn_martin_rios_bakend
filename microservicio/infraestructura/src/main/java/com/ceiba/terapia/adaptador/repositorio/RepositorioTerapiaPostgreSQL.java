@@ -12,7 +12,7 @@ public class RepositorioTerapiaPostgreSQL implements RepositorioTerapia {
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace = "terapia", value = "crear")
-    private static String sqlCrear;
+    private static String sqlCrearTerapia;
 
 
     public RepositorioTerapiaPostgreSQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
@@ -21,7 +21,7 @@ public class RepositorioTerapiaPostgreSQL implements RepositorioTerapia {
 
     @Override
     public Long crear(Terapia terapia) {
-        return this.customNamedParameterJdbcTemplate.crear(terapia, sqlCrear);
+        return this.customNamedParameterJdbcTemplate.crear(terapia, sqlCrearTerapia);
     }
 
 }

@@ -12,7 +12,7 @@ public class RepositorioTipoServicioPostgreSQL implements RepositorioTipoServici
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace = "tipo_servicio", value = "existePorId")
-    private static String sqlExistePorId;
+    private static String sqlExisteTipoServicioPorId;
 
 
     public RepositorioTipoServicioPostgreSQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
@@ -24,7 +24,7 @@ public class RepositorioTipoServicioPostgreSQL implements RepositorioTipoServici
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id", id);
 
-        return Boolean.TRUE.equals(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorId, paramSource, Boolean.class));
+        return Boolean.TRUE.equals(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteTipoServicioPorId, paramSource, Boolean.class));
 
     }
 }

@@ -13,9 +13,9 @@ import java.util.List;
 public class DaoTipoServicioPostgreSQL implements DaoTipoServicio {
 
     @SqlStatement(namespace = "tipo_servicio", value = "listar")
-    private static String sqlListar;
+    private static String sqlListarTipoServicio;
     @SqlStatement(namespace = "tipo_servicio", value = "listarPorId")
-    private static String sqlListarPorId;
+    private static String sqlListarTipoServicioPorId;
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     public DaoTipoServicioPostgreSQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
@@ -25,7 +25,7 @@ public class DaoTipoServicioPostgreSQL implements DaoTipoServicio {
 
     @Override
     public List<DtoTipoServicio> listar() {
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, new MapeoTipoServicio());
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarTipoServicio, new MapeoTipoServicio());
     }
 
     @Override
@@ -33,6 +33,6 @@ public class DaoTipoServicioPostgreSQL implements DaoTipoServicio {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("id", id);
 
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPorId, paramSource, new MapeoTipoServicio()).get(0);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarTipoServicioPorId, paramSource, new MapeoTipoServicio()).get(0);
     }
 }
