@@ -21,7 +21,7 @@ public class RepositorioTerapiaPostgreSQL implements RepositorioTerapia {
 
     @Override
     public Long crear(Terapia terapia) {
-        return this.customNamedParameterJdbcTemplate.crear(terapia, this.sqlCrear);
+        return this.customNamedParameterJdbcTemplate.crear(terapia, sqlCrear);
     }
 
 }

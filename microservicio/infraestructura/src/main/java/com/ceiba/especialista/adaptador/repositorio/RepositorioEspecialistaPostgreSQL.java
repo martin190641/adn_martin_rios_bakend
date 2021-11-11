@@ -13,19 +13,19 @@ public class RepositorioEspecialistaPostgreSQL implements RepositorioEspecialist
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace = "especialista", value = "crear")
-    private String sqlCrear;
+    private static String sqlCrear;
 
     @SqlStatement(namespace = "especialista", value = "actualizar")
-    private String sqlActualizar;
+    private static String sqlActualizar;
 
     @SqlStatement(namespace = "especialista", value = "eliminar")
-    private String sqlEliminar;
+    private static String sqlEliminar;
 
     @SqlStatement(namespace = "especialista", value = "existe")
-    private String sqlExiste;
+    private static String sqlExiste;
 
     @SqlStatement(namespace = "especialista", value = "existePorId")
-    private String sqlExistePorId;
+    private static String sqlExistePorId;
 
     public RepositorioEspecialistaPostgreSQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -33,12 +33,12 @@ public class RepositorioEspecialistaPostgreSQL implements RepositorioEspecialist
 
     @Override
     public Long crear(Especialista especialista) {
-        return this.customNamedParameterJdbcTemplate.crear(especialista, this.sqlCrear);
+        return this.customNamedParameterJdbcTemplate.crear(especialista, sqlCrear);
     }
 
     @Override
     public void actualizar(Especialista especialista) {
-        this.customNamedParameterJdbcTemplate.actualizar(especialista, this.sqlActualizar);
+        this.customNamedParameterJdbcTemplate.actualizar(especialista, sqlActualizar);
     }
 
     @Override

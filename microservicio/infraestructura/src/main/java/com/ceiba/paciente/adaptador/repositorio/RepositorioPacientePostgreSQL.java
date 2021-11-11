@@ -13,19 +13,19 @@ public class RepositorioPacientePostgreSQL implements RepositorioPaciente {
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace = "paciente", value = "crear")
-    private String sqlCrear;
+    private static String sqlCrear;
 
     @SqlStatement(namespace = "paciente", value = "actualizar")
-    private String sqlActualizar;
+    private static String sqlActualizar;
 
     @SqlStatement(namespace = "paciente", value = "eliminar")
-    private String sqlEliminar;
+    private static String sqlEliminar;
 
     @SqlStatement(namespace = "paciente", value = "existe")
-    private String sqlExiste;
+    private static String sqlExiste;
 
     @SqlStatement(namespace = "paciente", value = "existePorId")
-    private String sqlExistePorId;
+    private static String sqlExistePorId;
 
     public RepositorioPacientePostgreSQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -33,12 +33,12 @@ public class RepositorioPacientePostgreSQL implements RepositorioPaciente {
 
     @Override
     public Long crear(Paciente paciente) {
-        return this.customNamedParameterJdbcTemplate.crear(paciente, this.sqlCrear);
+        return this.customNamedParameterJdbcTemplate.crear(paciente, sqlCrear);
     }
 
     @Override
     public void actualizar(Paciente paciente) {
-        this.customNamedParameterJdbcTemplate.actualizar(paciente, this.sqlActualizar);
+        this.customNamedParameterJdbcTemplate.actualizar(paciente, sqlActualizar);
     }
 
     @Override
@@ -47,7 +47,6 @@ public class RepositorioPacientePostgreSQL implements RepositorioPaciente {
         paramSource.addValue("id", id);
 
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
-
     }
 
     @Override
@@ -56,7 +55,6 @@ public class RepositorioPacientePostgreSQL implements RepositorioPaciente {
         paramSource.addValue("documentoIdentificacion", documentoIdentificacion);
 
         return Boolean.TRUE.equals(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, paramSource, Boolean.class));
-
     }
 
     @Override
