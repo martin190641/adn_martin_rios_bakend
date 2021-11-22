@@ -20,18 +20,19 @@ public class ServicioCrearTerapia {
     private final RepositorioPaciente repositorioPaciente;
     private final RepositorioEspecialista repositorioEspecialista;
     private final RepositorioTipoServicio repositorioTipoServicio;
-    private final DaoTerapia daoTerapia;
-    private final DaoPaciente daoPaciente;
+    private final ServicioObtenerPorcentajeDescuentoTerapiaPorPaciente servicioObtenerPorcentajeDescuentoTerapiaPorPaciente;
 
 
     public ServicioCrearTerapia(RepositorioTerapia repositorioTerapia, RepositorioPaciente repositorioPaciente,
-                                RepositorioEspecialista repositorioEspecialista, RepositorioTipoServicio repositorioTipoServicio, DaoTerapia daoTerapia, DaoPaciente daoPaciente) {
+                                RepositorioEspecialista repositorioEspecialista,
+                                RepositorioTipoServicio repositorioTipoServicio,
+                                ServicioObtenerPorcentajeDescuentoTerapiaPorPaciente
+                                        servicioObtenerPorcentajeDescuentoTerapiaPorPaciente) {
         this.repositorioTerapia = repositorioTerapia;
         this.repositorioPaciente = repositorioPaciente;
         this.repositorioEspecialista = repositorioEspecialista;
         this.repositorioTipoServicio = repositorioTipoServicio;
-        this.daoTerapia = daoTerapia;
-        this.daoPaciente = daoPaciente;
+        this.servicioObtenerPorcentajeDescuentoTerapiaPorPaciente = servicioObtenerPorcentajeDescuentoTerapiaPorPaciente;
     }
 
     public Long ejecutar(Terapia terapia) {
@@ -52,19 +53,7 @@ public class ServicioCrearTerapia {
     }
 
     private void obtenerDescuentosParaLaTerapia(Terapia terapia) {
-        DtoPaciente dtoPaciente = daoPaciente.listarPorId(terapia.getPacienteId());
-        double pocentajeDescuento = 0;
-        if (dtoPaciente.getEdad() < 5 || dtoPaciente.getEdad() > 58) {
-            pocentajeDescuento += 25.0;
-        }
-
-        if (daoTerapia.cantidadTepariasMes(terapia.getPacienteId(),
-                UtilsFecha.getFechaIncialMesActual(terapia.getFechaTerapia()),
-                UtilsFecha.getFechaFinMesActual(terapia.getFechaTerapia())) > 1) {
-            pocentajeDescuento += 15.0;
-        }
-
-        terapia.asignarDescuento(pocentajeDescuento);
+        terapia.asignarDescuento(servicioObtenerPorcentajeDescuentoTerapiaPorPaciente.ejecutar(terapia.getPacienteId()));
     }
 
     private void validarExistenciaPreviaPaciente(Long pacienteId) {

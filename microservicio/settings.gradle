@@ -16,3 +16,5 @@ project(':comun:comun-infraestructura').projectDir = new File('../comun/comun-in
 project(':comun:comun-aplicacion').projectDir = new File('../comun/comun-aplicacion')
 project(':comun:comun-dominio').projectDir = new File('../comun/comun-dominio')
 project(':comun:comun-test').projectDir = new File('../comun/comun-test')
+
+

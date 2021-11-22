@@ -31,6 +31,7 @@ class ServicioCrearTerapiaTest {
     private RepositorioTipoServicio repositorioTipoServicio;
     private DaoTerapia daoTerapia;
     private DaoPaciente daoPaciente;
+    private ServicioObtenerPorcentajeDescuentoTerapiaPorPaciente servicioObtenerPorcentajeDescuentoTerapiaPorPaciente;
 
     @BeforeAll
     public void setUp() {
@@ -40,6 +41,7 @@ class ServicioCrearTerapiaTest {
         repositorioTipoServicio = Mockito.mock(RepositorioTipoServicio.class);
         daoTerapia = Mockito.mock(DaoTerapia.class);
         daoPaciente = Mockito.mock(DaoPaciente.class);
+        servicioObtenerPorcentajeDescuentoTerapiaPorPaciente = Mockito.mock(ServicioObtenerPorcentajeDescuentoTerapiaPorPaciente.class);
     }
 
     @Test
@@ -58,7 +60,7 @@ class ServicioCrearTerapiaTest {
 
 
         ServicioCrearTerapia servicioCrearTerapia = new ServicioCrearTerapia(repositorioTerapia, repositorioPaciente,
-                repositorioEspecialista, repositorioTipoServicio, daoTerapia, daoPaciente);
+                repositorioEspecialista, repositorioTipoServicio, servicioObtenerPorcentajeDescuentoTerapiaPorPaciente);
 
         // Ejecución
         Long idTerapia = servicioCrearTerapia.ejecutar(terapia);
@@ -83,7 +85,7 @@ class ServicioCrearTerapiaTest {
 
 
         ServicioCrearTerapia servicioCrearTerapia = new ServicioCrearTerapia(repositorioTerapia, repositorioPaciente,
-                repositorioEspecialista, repositorioTipoServicio, daoTerapia, daoPaciente);
+                repositorioEspecialista, repositorioTipoServicio, servicioObtenerPorcentajeDescuentoTerapiaPorPaciente);
 
         // Ejecución - assert
         BasePrueba.assertThrows(() -> servicioCrearTerapia.ejecutar(terapia), ExcepcionSinDatos.class,
@@ -106,7 +108,7 @@ class ServicioCrearTerapiaTest {
 
 
         ServicioCrearTerapia servicioCrearTerapia = new ServicioCrearTerapia(repositorioTerapia, repositorioPaciente,
-                repositorioEspecialista, repositorioTipoServicio, daoTerapia, daoPaciente);
+                repositorioEspecialista, repositorioTipoServicio, servicioObtenerPorcentajeDescuentoTerapiaPorPaciente);
 
         // Ejecución - assert
         BasePrueba.assertThrows(() -> servicioCrearTerapia.ejecutar(terapia), ExcepcionSinDatos.class,
@@ -129,7 +131,7 @@ class ServicioCrearTerapiaTest {
 
 
         ServicioCrearTerapia servicioCrearTerapia = new ServicioCrearTerapia(repositorioTerapia, repositorioPaciente,
-                repositorioEspecialista, repositorioTipoServicio, daoTerapia, daoPaciente);
+                repositorioEspecialista, repositorioTipoServicio, servicioObtenerPorcentajeDescuentoTerapiaPorPaciente);
 
         // Ejecución - assert
         BasePrueba.assertThrows(() -> servicioCrearTerapia.ejecutar(terapia), ExcepcionSinDatos.class,

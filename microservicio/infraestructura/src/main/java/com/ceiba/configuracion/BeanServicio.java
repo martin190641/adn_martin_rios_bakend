@@ -15,6 +15,7 @@ import com.ceiba.terapia.puerto.dao.DaoTerapia;
 import com.ceiba.terapia.puerto.repositorio.RepositorioTerapia;
 import com.ceiba.terapia.servicio.ServicioCrearTerapia;
 import com.ceiba.terapia.servicio.ServicioListarTerapiasPorPaciente;
+import com.ceiba.terapia.servicio.ServicioObtenerPorcentajeDescuentoTerapiaPorPaciente;
 import com.ceiba.terapia_detalle.puerto.repositorio.RepositorioTerapiaDetalle;
 import com.ceiba.terapia_detalle.servicio.ServicioCrearTerapiaDetalle;
 import com.ceiba.tiposervicio.puerto.dao.DaoTipoServicio;
@@ -51,24 +52,39 @@ public class BeanServicio {
     }
 
     @Bean
-    public ServicioActualizarEspecialista servicioActualizarEspecialista(RepositorioEspecialista repositorioEspecialista) {
+    public ServicioActualizarEspecialista servicioActualizarEspecialista(
+            RepositorioEspecialista repositorioEspecialista) {
         return new ServicioActualizarEspecialista(repositorioEspecialista);
     }
 
     @Bean
-    public ServicioCrearTerapia servicioCrearTerapia(RepositorioTerapia repositorioTerapia, RepositorioPaciente repositorioPaciente,
-                                                     RepositorioEspecialista repositorioEspecialista, RepositorioTipoServicio repositorioTipoServicio, DaoTerapia daoTerapia, DaoPaciente daoPaciente) {
-        return new ServicioCrearTerapia(repositorioTerapia, repositorioPaciente, repositorioEspecialista, repositorioTipoServicio, daoTerapia, daoPaciente);
+    public ServicioCrearTerapia servicioCrearTerapia(RepositorioTerapia repositorioTerapia,
+                                                     RepositorioPaciente repositorioPaciente,
+                                                     RepositorioEspecialista repositorioEspecialista,
+                                                     RepositorioTipoServicio repositorioTipoServicio,
+                                                     ServicioObtenerPorcentajeDescuentoTerapiaPorPaciente
+                                                                 servicioObtenerPorcentajeDescuentoTerapiaPorPaciente) {
+        return new ServicioCrearTerapia(repositorioTerapia, repositorioPaciente, repositorioEspecialista,
+                repositorioTipoServicio, servicioObtenerPorcentajeDescuentoTerapiaPorPaciente);
     }
 
     @Bean
-    public ServicioCrearTerapiaDetalle servicioCrearTerapiaDetalle(RepositorioTerapiaDetalle repositorioTerapiaDetalle, RepositorioFestividad repositorioFestividad) {
+    public ServicioCrearTerapiaDetalle servicioCrearTerapiaDetalle(RepositorioTerapiaDetalle repositorioTerapiaDetalle,
+                                                                   RepositorioFestividad repositorioFestividad) {
         return new ServicioCrearTerapiaDetalle(repositorioTerapiaDetalle, repositorioFestividad);
     }
 
     @Bean
-    public ServicioListarTerapiasPorPaciente servicioListarTerapiasPorPaciente(DaoPaciente daoPaciente, DaoTipoServicio daoTipoServicio, DaoEspecialista daoEspecialista, DaoTerapia daoTerapia) {
+    public ServicioListarTerapiasPorPaciente servicioListarTerapiasPorPaciente(DaoPaciente daoPaciente,
+                                                                               DaoTipoServicio daoTipoServicio,
+                                                                               DaoEspecialista daoEspecialista,
+                                                                               DaoTerapia daoTerapia) {
         return new ServicioListarTerapiasPorPaciente(daoPaciente, daoTipoServicio, daoEspecialista, daoTerapia);
     }
 
+    @Bean
+    public ServicioObtenerPorcentajeDescuentoTerapiaPorPaciente servicioObtenerPorcentajeDescuentoTerapiaPorPaciente(
+            DaoTerapia daoTerapia, DaoPaciente daoPaciente, RepositorioPaciente repositorioPaciente) {
+        return new ServicioObtenerPorcentajeDescuentoTerapiaPorPaciente(daoTerapia, daoPaciente, repositorioPaciente);
+    }
 }

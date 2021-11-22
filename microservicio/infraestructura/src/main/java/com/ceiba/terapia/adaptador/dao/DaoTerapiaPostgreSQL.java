@@ -39,6 +39,5 @@ public class DaoTerapiaPostgreSQL implements DaoTerapia {
         paramSource.addValue("fechaFinal", fehcaFinal);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlContarTerapiasPorPacienteEntreFechas, paramSource, Integer.class);
-
     }
 }
