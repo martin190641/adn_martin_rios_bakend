@@ -1,13 +1,9 @@
 package com.ceiba.terapia.servicio;
 
-import com.ceiba.dominio.UtilsFecha;
 import com.ceiba.dominio.excepcion.ExcepcionSinDatos;
 import com.ceiba.especialista.puerto.repositorio.RepositorioEspecialista;
-import com.ceiba.paciente.modelo.dto.DtoPaciente;
-import com.ceiba.paciente.puerto.dao.DaoPaciente;
 import com.ceiba.paciente.puerto.repositorio.RepositorioPaciente;
 import com.ceiba.terapia.modelo.entidad.Terapia;
-import com.ceiba.terapia.puerto.dao.DaoTerapia;
 import com.ceiba.terapia.puerto.repositorio.RepositorioTerapia;
 import com.ceiba.tiposervicio.puerto.repositorio.RepositorioTipoServicio;
 

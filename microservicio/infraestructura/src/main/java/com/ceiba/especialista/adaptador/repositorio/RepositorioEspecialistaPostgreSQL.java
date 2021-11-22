@@ -10,22 +10,17 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class RepositorioEspecialistaPostgreSQL implements RepositorioEspecialista {
 
-    private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
-
     @SqlStatement(namespace = "especialista", value = "crear")
     private static String sqlCrearEspecialista;
-
     @SqlStatement(namespace = "especialista", value = "actualizar")
     private static String sqlActualizarEspecialista;
-
     @SqlStatement(namespace = "especialista", value = "eliminar")
     private static String sqlEliminarEspecialista;
-
     @SqlStatement(namespace = "especialista", value = "existe")
     private static String sqlExisteEspecialista;
-
     @SqlStatement(namespace = "especialista", value = "existePorId")
     private static String sqlExisteEspecialistaPorId;
+    private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     public RepositorioEspecialistaPostgreSQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;

@@ -10,22 +10,17 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class RepositorioPacientePostgreSQL implements RepositorioPaciente {
 
-    private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
-
     @SqlStatement(namespace = "paciente", value = "crear")
     private static String sqlCrearPaciente;
-
     @SqlStatement(namespace = "paciente", value = "actualizar")
     private static String sqlActualizarPaciente;
-
     @SqlStatement(namespace = "paciente", value = "eliminar")
     private static String sqlEliminarPaciente;
-
     @SqlStatement(namespace = "paciente", value = "existe")
     private static String sqlExistePaciente;
-
     @SqlStatement(namespace = "paciente", value = "existePorId")
     private static String sqlExistePacientePorId;
+    private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     public RepositorioPacientePostgreSQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;

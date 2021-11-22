@@ -63,7 +63,7 @@ public class BeanServicio {
                                                      RepositorioEspecialista repositorioEspecialista,
                                                      RepositorioTipoServicio repositorioTipoServicio,
                                                      ServicioObtenerPorcentajeDescuentoTerapiaPorPaciente
-                                                                 servicioObtenerPorcentajeDescuentoTerapiaPorPaciente) {
+                                                             servicioObtenerPorcentajeDescuentoTerapiaPorPaciente) {
         return new ServicioCrearTerapia(repositorioTerapia, repositorioPaciente, repositorioEspecialista,
                 repositorioTipoServicio, servicioObtenerPorcentajeDescuentoTerapiaPorPaciente);
     }

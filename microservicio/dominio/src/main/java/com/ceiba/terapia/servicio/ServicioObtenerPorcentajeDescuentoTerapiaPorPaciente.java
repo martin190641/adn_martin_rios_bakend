@@ -17,11 +17,10 @@ public class ServicioObtenerPorcentajeDescuentoTerapiaPorPaciente {
     private static final int EDAD_MINIMA_PARA_DESCUENTO_ADULTO = 59;
     private static final int CANTIDAD_MINIMA_DE_TERAPIAS_EN_EL_MES = 2;
     private static final double PORCENTAJE_POR_CANTIDAD_DE_TERAPIAS = 15;
-
-    private double porcentajeDescuento;
     private final DaoTerapia daoTerapia;
     private final DaoPaciente daoPaciente;
     private final RepositorioPaciente repositorioPaciente;
+    private double porcentajeDescuento;
 
     public ServicioObtenerPorcentajeDescuentoTerapiaPorPaciente(DaoTerapia daoTerapia, DaoPaciente daoPaciente, RepositorioPaciente repositorioPaciente) {
         this.daoTerapia = daoTerapia;

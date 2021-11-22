@@ -12,9 +12,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.mockito.Mockito;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class ServicioObtenerPorcentajeDescuentoTerapiaPorPacienteTest {
@@ -31,6 +32,7 @@ class ServicioObtenerPorcentajeDescuentoTerapiaPorPacienteTest {
     private Long pacienteId;
     private LocalDate fechaInicial;
     private LocalDate fechaFinal;
+
     @BeforeAll
     public void setUp() {
         repositorioPaciente = Mockito.mock(RepositorioPaciente.class);
@@ -50,7 +52,7 @@ class ServicioObtenerPorcentajeDescuentoTerapiaPorPacienteTest {
                 .conFechaNacimiento(LocalDate.now().minusYears(18)).build());
         Mockito.when(repositorioPaciente.existePorId(this.pacienteId)).thenReturn(true);
         Mockito.when(daoTerapia.cantidadTepariasMes(this.pacienteId, this.fechaInicial,
-               this.fechaFinal)).thenReturn(1);
+                this.fechaFinal)).thenReturn(1);
 
 
         ServicioObtenerPorcentajeDescuentoTerapiaPorPaciente servicioObtenerPorcentajeDescuentoTerapiaPorPaciente
@@ -129,6 +131,7 @@ class ServicioObtenerPorcentajeDescuentoTerapiaPorPacienteTest {
         //- assert
         assertEquals(PORCENTAJE_POR_CANTIDAD_DE_TERAPIAS, pocentajeDescuento);
     }
+
     @Test
     @DisplayName("Debería obtener un descuento del 40% por tener mas de una terapia registrada en el mes de la terapia y tiene una edad menor a 5 años")
     void deberiaDescuentoDePorMultiplesTerapiasEnElMesYPorEdadMenorA5() {

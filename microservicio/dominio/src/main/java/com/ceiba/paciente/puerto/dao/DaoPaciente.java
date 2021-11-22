@@ -3,7 +3,6 @@ package com.ceiba.paciente.puerto.dao;
 import com.ceiba.paciente.modelo.dto.DtoPaciente;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface DaoPaciente {
 

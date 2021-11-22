@@ -9,10 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class RepositorioTipoServicioPostgreSQL implements RepositorioTipoServicio {
 
-    private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
-
     @SqlStatement(namespace = "tipo_servicio", value = "existePorId")
     private static String sqlExisteTipoServicioPorId;
+    private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
 
     public RepositorioTipoServicioPostgreSQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {

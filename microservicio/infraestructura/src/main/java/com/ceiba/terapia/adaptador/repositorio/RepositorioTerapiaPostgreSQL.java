@@ -9,10 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class RepositorioTerapiaPostgreSQL implements RepositorioTerapia {
 
-    private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
-
     @SqlStatement(namespace = "terapia", value = "crear")
     private static String sqlCrearTerapia;
+    private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
 
     public RepositorioTerapiaPostgreSQL(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {

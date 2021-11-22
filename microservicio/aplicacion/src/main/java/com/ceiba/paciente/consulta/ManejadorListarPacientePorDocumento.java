@@ -4,8 +4,6 @@ import com.ceiba.paciente.modelo.dto.DtoPaciente;
 import com.ceiba.paciente.puerto.dao.DaoPaciente;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
-
 @Component
 public class ManejadorListarPacientePorDocumento {
 
